@@ -51,13 +51,13 @@ function App() {
         console.log("Datos de la ruta: ", datosRuta)
         console.log("Coordenadas de origen: ", latO, lonO)
         console.log("Coordenadas de destino: ", latD, lonD)
-      }else{
+      } else {
         alert("No se encontró la ubicación");
       }
     } catch (e) {
       console.log("Error al encontrar la ubicación: ", e)
     }
-    
+
     setDireccionOrigen("");
     setDireccionDestino("");
     setCiudad("");
@@ -66,28 +66,30 @@ function App() {
 
   return (
     <>
-    
-      <MapaFondo datos={datosRuta}/>
-      <form onSubmit={handleSubmit} className="absolute top-10 left-1/2 -translate-x-1/2 z-10 flex justify-center items-center gap-5 w-fit p-4 bg-gray-400 rounded-3xl" >
-        <div className="relative w-80 text-gray-500 focus-within:text-gray-500">
-          <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-            <MapPin size={20} />
+
+      <MapaFondo datos={datosRuta} />
+      <form onSubmit={handleSubmit} className="absolute top-6 md:top-10 left-1/2 -translate-x-1/2 z-20 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-2 w-[92%] md:w-fit max-w-6xl p-3 md:p-2 bg-gray-400 rounded-3xl shadow-2xl">
+        <div className="flex flex-col md:flex-row items-center gap-2 w-full md:w-auto">
+          <div className="relative w-full md:w-64 lg:w-72 text-gray-500">
+            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+              <MapPin size={18} />
+            </div>
+            <input value={direccionOrigen} onChange={(e) => setDireccionOrigen(e.target.value)} className="w-full p-3 pl-11 bg-white rounded-full placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder="Origen"/>
           </div>
-          <input value={direccionOrigen} onChange={(e)=> setDireccionOrigen(e.target.value)} className="w-full p-3 pl-12 bg-white rounded-full placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder="Ingresa tu dirección de origen" />
-        </div>
-        <div className="relative w-80 focus-within:text-gray-500">
-          <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-            <Navigation size={20} className="rotate-90" /> 
+          <div className="relative w-full md:w-64 lg:w-72 text-gray-500">
+            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+              <Navigation size={18} className="rotate-90" />
+            </div>
+            <input value={direccionDestino} onChange={(e) => setDireccionDestino(e.target.value)} className="w-full p-3 pl-11 bg-white rounded-full placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder="Destino"/>
           </div>
-          <input value={direccionDestino} onChange={(e)=> setDireccionDestino(e.target.value)} className="w-full p-3 pl-12 bg-white rounded-full placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder="Ingresa tu dirección de destino" />
-        </div>
-        <div className="relative w-80 focus-within:text-gray-500">
-          <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-           <Building2 size={20} />
+          <div className="relative w-full md:w-40 lg:w-48 text-gray-500">
+            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+              <Building2 size={18} />
+            </div>
+            <input value={ciudad} onChange={(e) => setCiudad(e.target.value)} className="w-full p-3 pl-11 bg-white rounded-full placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder="Ciudad"/>
           </div>
-          <input value={ciudad} onChange={(e)=> setCiudad(e.target.value)} className="w-full p-3 pl-12 bg-white rounded-full placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder="Ingresa tu ciudad"/>
         </div>
-        <button className="bg-white p-3 rounded-2xl cursor-pointer hover:bg-gray-500 transition-colors duration-400 ease-in-out" type="submit">Buscar</button>
+        <button className="w-full md:w-auto px-8 py-3 bg-white text-gray-700 rounded-full md:rounded-2xl  hover:bg-gray-100 transition-all duration-300 shadow-sm active:scale-95" type="submit"> Buscar </button>
       </form>
     </>
   )
