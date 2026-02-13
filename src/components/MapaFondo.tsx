@@ -18,7 +18,8 @@ export const MapaFondo = ({ datos }: MapaFondoProps) => {
     <>
       <div className="fixed inset-0 z-0">
         <MapContainer
-          zoom={20}
+          center={[10.9685, -74.7813]}
+          zoom={13}
           scrollWheelZoom={true}
           className="h-full w-full"
           zoomControl={false}
