@@ -48,9 +48,7 @@ function App() {
             destino: [latD, lonD]
           })
         }
-        console.log("Datos de la ruta: ", datosRuta)
-        console.log("Coordenadas de origen: ", latO, lonO)
-        console.log("Coordenadas de destino: ", latD, lonD)
+
       } else {
         alert("No se encontró la ubicación");
       }
@@ -89,7 +87,7 @@ function App() {
             <input value={ciudad} onChange={(e) => setCiudad(e.target.value)} className="w-full p-3 pl-11 bg-white rounded-full placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder="Ciudad"/>
           </div>
         </div>
-        <button className="w-full md:w-auto px-8 py-3 bg-white text-gray-700 rounded-full md:rounded-2xl  hover:bg-gray-100 transition-all duration-300 shadow-sm active:scale-95" type="submit"> Buscar </button>
+        <button className="w-full md:w-auto px-8 py-3 bg-white text-gray-700 rounded-full md:rounded-2xl  hover:bg-gray-600 hover:text-white transition-colors duration-500 active:scale-95 cursor-pointer" type="submit"> Buscar </button>
       </form>
     </>
   )
