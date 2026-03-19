@@ -7,7 +7,7 @@ Este es un pequeño proyecto para búsqueda de direcciones y cálculo de rutas e
 - React + TypeScript.
 - Tailwind para estilos.
 - Leaflet y React Leaflet para mostrar el mapa.
-- Photon para convertir las direcciones ingresadas por el usuario en latitud y longitud.
+- Photon para búsqueda de las direcciones ingresadas en la base de datos de OpenStreetMap y obtener las latitudes y longitudes.
 - OSRM (Open Source Routing Machine) para el cálculo de las rutas ya teniendo latitud y longitud.
 - Lucide React para los iconos usados en los inputs.
 
