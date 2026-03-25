@@ -3,6 +3,22 @@ import "leaflet/dist/leaflet.css";
 import { useMyLocation } from "../hooks/useMyLocation";
 import type { RutaDatos } from "../interface/interfaces";
 import { EnfocarRuta, ObtenerUbicacionUsuario } from "./MapaControles";
+import L from "leaflet";
+import MarkerShadow from "leaflet/dist/images/marker-shadow.png";
+
+const origenIcon = L.icon({
+  iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
+  shadowUrl: MarkerShadow,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+})
+
+const destinoIcon = L.icon({
+  iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png",
+  shadowUrl: MarkerShadow,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+})
 
 interface MapaFondoProps {
   datos: RutaDatos
@@ -30,7 +46,7 @@ export const MapaFondo = ({ datos }: MapaFondoProps) => {
           />
 
           {position && (
-            <Marker position={position}>
+            <Marker position={position} icon={origenIcon}>
               <Popup>Estás aquí</Popup>
             </Marker>
           )}
@@ -42,10 +58,10 @@ export const MapaFondo = ({ datos }: MapaFondoProps) => {
           )}
 
           {datos.origen !== null && (
-            <Marker position={datos.origen} />
+            <Marker position={datos.origen} icon={origenIcon}/>
           )}
           {datos.destino !== null && (
-            <Marker position={datos.destino} />
+            <Marker position={datos.destino} icon={destinoIcon} />
           )}
           <EnfocarRuta coordenadas={datos.coordenadas} />
         </MapContainer>
